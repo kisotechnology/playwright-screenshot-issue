@@ -11,21 +11,17 @@ const playwrightPackage = require('playwright/package.json');
   const screenshotPath = path.resolve(screenshotDir, 'single-dropdown.png');
   const browser = await chromium.launch({ headless: false });
 
-  try {
-    const context = await browser.newContext();
-    const page = await context.newPage();
+  const context = await browser.newContext();
+  const page = await context.newPage();
 
-    await page.goto('http://localhost:8000/single-drop-down.html');
-    await page.waitForSelector('select#mainDropdown');
-    await page.click('select#mainDropdown');
-    await page.waitForTimeout(500);
-    await page.screenshot({ path: screenshotPath, fullPage: true });
+  await page.goto('http://localhost:8000/single-drop-down.html');
+  await page.waitForSelector('select#mainDropdown');
+  await page.click('select#mainDropdown');
+  await page.waitForTimeout(500);
+  await page.screenshot({ path: screenshotPath, fullPage: true });
 
-    console.log(`Playwright version: ${playwrightPackage.version}`);
-    console.log(`Screenshot saved to: ${screenshotPath}`);
-  } finally {
-    await browser.close();
-  }
+  console.log(`Playwright version: ${playwrightPackage.version}`);
+  console.log(`Screenshot saved to: ${screenshotPath}`);
 })().catch((error) => {
   console.error('Failed to capture dropdown screenshot:', error);
   process.exitCode = 1;
