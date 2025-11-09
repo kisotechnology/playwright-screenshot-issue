@@ -2,7 +2,14 @@
 
 We use Playwright for our browser automation agent, but we frequently encounter an issue where the screenshots captured by Playwright differ from what is actually rendered in Chromium. This discrepancy is especially noticeable when working with dropdown menus. Please see the screenshots below for examples.
 
-**What we see on the screen**
+There are two issues here:
+
+
+**The correct rendering of the page**
+
+<img src="images/correct.png" alt="drawing" width="500"/>
+
+**What we see on the screen when playwright opens the page in Chromium**
 
 <img src="images/screenshot-mac.png" alt="drawing" width="500"/>
 
