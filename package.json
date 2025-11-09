@@ -1,0 +1,20 @@
+{
+  "name": "playwright-screenshot-issue",
+  "version": "1.0.0",
+  "description": "Scripts for reproducing Playwright screenshot issue",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No automated tests configured\"",
+    "capture:dropdown": "node scripts/capture-dropdown.js"
+  },
+  "keywords": [
+    "playwright",
+    "screenshot"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "playwright": "^1.41.2"
+  }
+}
