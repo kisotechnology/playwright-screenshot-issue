@@ -1,6 +1,16 @@
 # playwright-screenshot-issue
 
-Exploring the Playwright screenshot issue.
+We use Playwright for our browser automation agent, but we frequently encounter an issue where the screenshots captured by Playwright differ from what is actually rendered in Chromium. This discrepancy is especially noticeable when working with dropdown menus. Please see the screenshots below for examples.
+
+**What we see on the screen**
+
+<img src="images/screenshot-mac.png" alt="drawing" width="500"/>
+
+**What playwright captures**
+
+<img src="images/screenshot-playwright.png" width="500"/>
+
+## Steps to reproduce 
 
 ## Prerequisites
 
@@ -23,13 +33,10 @@ npx playwright install
    ```bash
    python -m http.server 8000
    ```
-
    Keep this server running while you execute the script.
-
 2. In a new terminal, run the Playwright script:
 
    ```bash
    node scripts/capture-dropdown.js
    ```
-
    The script prints the installed Playwright version and the absolute path to the generated screenshot (saved in the `screenshots` directory).
