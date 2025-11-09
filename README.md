@@ -4,6 +4,9 @@ We use Playwright for our browser automation agent, but we frequently encounter 
 
 There are two issues here:
 
+1. When the page is opened via Playwright, the dropdown does not render correctly.
+2. When Playwright takes a screenshot, the dropdown items are not captured.
+
 
 **The correct rendering of the page**
 
@@ -17,7 +20,7 @@ There are two issues here:
 
 <img src="images/screenshot-playwright.png" width="500"/>
 
-## Steps to reproduce 
+## Steps to reproduce
 
 ## Prerequisites
 
