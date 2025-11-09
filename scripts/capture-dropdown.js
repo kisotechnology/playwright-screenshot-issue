@@ -9,7 +9,7 @@ const playwrightPackage = require('playwright/package.json');
   await fs.promises.mkdir(screenshotDir, { recursive: true });
 
   const screenshotPath = path.resolve(screenshotDir, 'single-dropdown.png');
-  const browser = await chromium.launch();
+  const browser = await chromium.launch({ headless: false });
 
   try {
     const context = await browser.newContext();
