@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Dropdown</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 80px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .dropdown-wrapper {
+            position: relative;
+            display: inline-block;
+            min-width: 250px;
+        }
+
+        select {
+            width: 100%;
+            padding: 15px 40px 15px 20px;
+            font-size: 16px;
+            color: #333;
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 12px;
+            cursor: pointer;
+            appearance: none;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        select:hover {
+            border-color: #764ba2;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #764ba2;
+            box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.2);
+        }
+
+        .dropdown-wrapper::after {
+            content: '▼';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #667eea;
+            font-size: 12px;
+        }
+
+        option {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select an Option</h1>
+        <div class="dropdown-wrapper">
+            <select id="mainDropdown">
+                <option value="" disabled selected>Choose an option...</option>
+                <option value="apple">Apple</option>
+                <option value="banana">Banana</option>
+                <option value="orange">Orange</option>
+                <option value="grape">Grape</option>
+                <option value="strawberry">Strawberry</option>
+                <option value="mango">Mango</option>
+                <option value="pineapple">Pineapple</option>
+                <option value="others">Others</option>
+            </select>
+        </div>
+    </div>
+
+    <script>
+        const dropdown = document.getElementById('mainDropdown');
+        
+        dropdown.addEventListener('change', (e) => {
+            console.log('Selected:', e.target.value);
+        });
+    </script>
+</body>
+</html>
