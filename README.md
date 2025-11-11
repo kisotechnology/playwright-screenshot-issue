@@ -1,24 +1,33 @@
-# playwright-screenshot-issues
+# Playwright Screenshot Issues with \<select\> Elements
 
-`>> Playwright version: 1.56.1 (latest)`
+> Playwright version: 1.56.1 (latest)
 
+We use Playwright for our browser automation agent, but we frequently encounter an issue where screenshots captured from `<select>` elements differ from what is actually rendered in Chromium.
 
-We use Playwright for our browser automation agent, but we frequently encounter an issue where the screenshots captured by Playwright differ from what is actually rendered in Chromium. This discrepancy is especially noticeable when working with dropdown menus. Please see the screenshots below for examples.
+This bug report focuses on *macOS*, though similar behavior occurs on *Ubuntu*. On Windows, the `page.screenshot()` command freezes, preventing us from fully reproducing the issue there.
 
-On Mac, there are two issues:
+The discrepancy is most noticeable with dropdown menus. Please refer to the screenshots below for examples.
 
-1. When the page is opened via Playwright, the dropdown does not render correctly.
-2. When Playwright takes a screenshot, the dropdown items are not captured.
+## Observations
 
-On Windows 11, the dropdown menu renders correctly in Chromium when opend via playwright, however the `page.screenshot()` halts and the rendering looks strange after the freeze (see screenshot)
+### On macOS:
 
+* When the page is opened via Playwright, dropdown menus do not render correctly.
+* When taking a screenshot, the dropdown items are missing from the captured image.
 
+### On Ubuntu:
 
+* When taking a screenshot, the dropdown items do not render correctly
 
+### On Windows 11:
 
-This issue exists on Mac, Windows and Ubuntu Linux (we have not examined other Linux distros)
+The dropdown renders correctly in Chromium when opened via Playwright, but page.screenshot() halts, and the rendering appears corrupted after the freeze (see attached screenshot).
 
-# Issue reporocuded on Mac OS 
+####  Affected Platforms
+
+This issue occurs on macOS, Windows, and Ubuntu Linux (other Linux distributions have not been tested).
+
+# Issue on Mac OS 
 
 **The correct rendering of the page**
 
@@ -32,15 +41,23 @@ This issue exists on Mac, Windows and Ubuntu Linux (we have not examined other L
 
 <img src="images/screenshot-playwright.png" width="500"/>
 
+
+# Issue on Ubuntu 
+
+On Ubuntu the same separation happens during the screenshot 
+<img src="images/ubuntu.png" width="500"/>
+
+
 # Issue on Windows 11
-On windows 11 the following line `
+We could not properly evaluate this on Windows since on our windows 11 the following line 
 
 ```javascript
   await page.screenshot({ path: 'screenshot.png', fullPage: true });
 ```
 
 
- halts and freezes the Chromium rendering and the following is what we see after that line
+halts and freezes the rendering on our Chromium
+
 <img src="images/windows-11-freeze.png" width="500"/>
 
 we get a timeout 
@@ -61,6 +78,7 @@ Call log:
 Please note that the page looks file in Chrome and Chromium before that line 
 
 <img src="images/windows-11-correct.png" width="500"/>
+
 
 ## Steps to reproduce
 
