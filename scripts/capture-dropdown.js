@@ -3,6 +3,7 @@ const { chromium } = require('playwright');
 const path = require('path');
 const fs = require('fs');
 const playwrightPackage = require('playwright/package.json');
+console.log(`Playwright version: ${playwrightPackage.version}`);
 
 (async () => {
   const screenshotDir = path.resolve(__dirname, '..', 'screenshots');
