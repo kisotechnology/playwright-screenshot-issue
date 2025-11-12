@@ -75,7 +75,7 @@ Call log:
 }
 
 ```
-Please note that the page looks file in Chrome and Chromium before that line 
+Please note that the page looks fine in Chrome and Chromium before that line 
 
 <img src="images/windows-11-correct.png" width="500"/>
 
@@ -104,6 +104,7 @@ npx playwright install
    python -m http.server 8000
    ```
    Keep this server running while you execute the script.
+
 2. In a new terminal, run the Playwright script:
 
    ```bash
