@@ -45,10 +45,12 @@ This issue occurs on macOS, Windows, and Ubuntu Linux (other Linux distributions
 # Issue on Ubuntu 
 
 On Ubuntu the same separation happens during the screenshot 
+
 <img src="images/ubuntu.png" width="500"/>
 
 However it seems using `headless` mitigates the problem to some extent on Ubuntu 
-<img src="images/ubuntu-headless.png" width="500"/>
+
+<img src="images/ubuntu-headless.jpg" width="500"/>
 
 
 # Issue on Windows 11
