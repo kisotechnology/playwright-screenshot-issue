@@ -47,6 +47,9 @@ This issue occurs on macOS, Windows, and Ubuntu Linux (other Linux distributions
 On Ubuntu the same separation happens during the screenshot 
 <img src="images/ubuntu.png" width="500"/>
 
+However it seems using `headless` mitigates the problem to some extent on Ubuntu 
+<img src="images/ubuntu-headless.png" width="500"/>
+
 
 # Issue on Windows 11
 We could not properly evaluate this on Windows since on our windows 11 the following line 
